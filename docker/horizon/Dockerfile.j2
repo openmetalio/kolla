@@ -47,8 +47,18 @@ COPY extend_start.sh /usr/local/bin/kolla_extend_start
 
 # NOTE(hrw): to install horizon from unpacked sources we cannot have it in upper-constraints.txt
 RUN ln -s horizon-source/* horizon \
+    # NOTE(mnasiadka): pinning setuptools due to https://bugs.launchpad.net/horizon/+bug/2007574
+    && {{ macros.install_pip(['setuptools==67.2.*']) }} \
+    # See https://bugs.launchpad.net/horizon/+bug/2007574
+    && curl -L https://files.pythonhosted.org/packages/source/X/XStatic-Moment-Timezone/XStatic-Moment-Timezone-0.5.22.0.tar.gz -o xstatic.tar.gz \
+    && mkdir -p storage && tar -xf xstatic.tar.gz -C storage --strip-components=1 \
+    && cd storage \
+    && sed -i "1 s/^/import pkg_resources\n/" setup.py \
+    && /var/lib/kolla/venv/bin/python3 setup.py install \
+    && cd ../ \
+    && rm -rf storage xstatic.tar.gz \
     && {{ macros.upper_constraints_remove("horizon") }} \
-    && {{ macros.install_pip(horizon_pip_packages | customizable("pip_packages")) }} \
+    && python3 -m pip install --no-build-isolation --no-cache-dir -c /requirements/upper-constraints.txt /horizon \
     && mkdir -p /etc/openstack-dashboard \
     && cp -r /horizon/openstack_dashboard/conf/* /etc/openstack-dashboard/ \
     && cp /horizon/openstack_dashboard/local/local_settings.py.example /etc/openstack-dashboard/local_settings \
