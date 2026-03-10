@@ -40,10 +40,10 @@ centos-aarch64:
 
 debian:
   erlang:
-    url: "https://ppa.launchpadcontent.net/rabbitmq/rabbitmq-erlang/ubuntu"
-    suite: "jammy"
+    url: "https://deb1.rabbitmq.com/rabbitmq-erlang/debian/bullseye"
+    suite: "bullseye"
     component: "main"
-    gpg_key: "erlang-ppa.gpg"
+    gpg_key: "rabbitmq.gpg"
   fluentd:
     url: "https://packages.treasuredata.com/lts/5/debian/bookworm"
     suite: "bookworm"
@@ -80,17 +80,17 @@ debian:
     component: ""
     gpg_key: "proxysql.asc"
   rabbitmq:
-    url: "https://ppa1.rabbitmq.com/rabbitmq/rabbitmq-server/deb/debian"
+    url: "https://deb1.rabbitmq.com/rabbitmq-server/debian/bullseye"
     suite: "bullseye"
     component: "main"
     gpg_key: "rabbitmq.gpg"
 
 debian-aarch64:
   erlang:
-    url: "https://ppa.launchpadcontent.net/rabbitmq/rabbitmq-erlang/ubuntu"
-    suite: "jammy"
+    url: "https://deb1.rabbitmq.com/rabbitmq-erlang/debian/bullseye"
+    suite: "bullseye"
     component: "main"
-    gpg_key: "erlang-ppa.gpg"
+    gpg_key: "rabbitmq.gpg"
   fluentd:
     url: "https://packages.treasuredata.com/lts/5/debian/bookworm"
     suite: "bookworm"
@@ -127,7 +127,7 @@ debian-aarch64:
     component: ""
     gpg_key: "proxysql.asc"
   rabbitmq:
-    url: "https://ppa1.rabbitmq.com/rabbitmq/rabbitmq-server/deb/debian"
+    url: "https://deb1.rabbitmq.com/rabbitmq-server/debian/bullseye"
     suite: "bullseye"
     component: "main"
     # NOTE(mnasiadka): Since rabbitmq is really noarch and community mirror is not
@@ -173,10 +173,10 @@ rocky-aarch64:
 
 ubuntu:
   erlang:
-    url: "https://ppa.launchpadcontent.net/rabbitmq/rabbitmq-erlang/ubuntu"
+    url: "https://deb1.rabbitmq.com/rabbitmq-erlang/ubuntu/jammy"
     suite: "jammy"
     component: "main"
-    gpg_key: "erlang-ppa.gpg"
+    gpg_key: "rabbitmq.gpg"
   fluentd:
     url: "https://packages.treasuredata.com/lts/5/ubuntu/jammy/"
     suite: "jammy"
@@ -213,17 +213,17 @@ ubuntu:
     component: ""
     gpg_key: "proxysql.asc"
   rabbitmq:
-    url: "https://ppa1.rabbitmq.com/rabbitmq/rabbitmq-server/deb/ubuntu"
+    url: "https://deb1.rabbitmq.com/rabbitmq-server/ubuntu/jammy"
     suite: "jammy"
     component: "main"
     gpg_key: "rabbitmq.gpg"
 
 ubuntu-aarch64:
   erlang:
-    url: "https://ppa.launchpadcontent.net/rabbitmq/rabbitmq-erlang/ubuntu"
+    url: "https://deb1.rabbitmq.com/rabbitmq-erlang/ubuntu/jammy"
     suite: "jammy"
     component: "main"
-    gpg_key: "erlang-ppa.gpg"
+    gpg_key: "rabbitmq.gpg"
   fluentd:
     url: "https://packages.treasuredata.com/lts/5/ubuntu/jammy/"
     suite: "jammy"
@@ -260,7 +260,7 @@ ubuntu-aarch64:
     component: ""
     gpg_key: "proxysql.asc"
   rabbitmq:
-    url: "https://ppa1.rabbitmq.com/rabbitmq/rabbitmq-server/deb/ubuntu"
+    url: "https://deb1.rabbitmq.com/rabbitmq-server/ubuntu/jammy"
     suite: "jammy"
     component: "main"
     arch: "amd64"
