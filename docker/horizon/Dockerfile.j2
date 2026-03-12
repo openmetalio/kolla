@@ -58,7 +58,7 @@ RUN ln -s horizon-source/* horizon \
     && cd ../ \
     && rm -rf storage xstatic.tar.gz \
     && {{ macros.upper_constraints_remove("horizon") }} \
-    && python3 -m pip install --no-build-isolation --no-cache-dir -c /requirements/upper-constraints.txt /horizon \
+    && PBR_VERSION=99.99.9 python3 -m pip install --upgrade --no-build-isolation --no-cache-dir -c /requirements/upper-constraints.txt /horizon \
     && mkdir -p /etc/openstack-dashboard \
     && cp -r /horizon/openstack_dashboard/conf/* /etc/openstack-dashboard/ \
     && cp /horizon/openstack_dashboard/local/local_settings.py.example /etc/openstack-dashboard/local_settings \
